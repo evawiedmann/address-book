@@ -50,6 +50,14 @@ Contact.prototype.fullName = function() {
   return this.firstName + " " + this.lastName;
 }
 
+Contact.prototype.updateContact = function(name1, name2, number, email, address) {
+  this.firstName = (name1 ? name1 : this.firstName);
+  this.lastName = (name2 ? name2 : this.lastName);
+  this.phoneNumber = (number ? number : this.phoneNumber);
+  this.emailAddress = (email ? email : this.emailAddress);
+  this.address = (address ? address : this.address);
+}
+
 // User Interface Logic ---------
 var addressBook = new AddressBook();
 
@@ -87,7 +95,7 @@ function showContact(contactId) {
   $(".address").html(contact.address);
   var buttons = $("#buttons");
   buttons.empty();
-  buttons.append("<button class='deleteButton' id=" +  + contact.id + ">Delete</button>");
+  buttons.append("<button class='deleteButton' id=" + contact.id + ">Delete</button>");
 }
 
 $(document).ready(function() {
